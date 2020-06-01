@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "async-weather-sdk"
+version = "0.1.0"
+description = "Async weather API wrapper for fetching weather and forecast data"
+authors = ["DecentFoX <service@decentfox.com>"]
+readme = "README.md"
+license = "MIT"
+homepage = "https://github.com/decentfox/async-weather-sdk"
+repository = "https://github.com/decentfox/async-weather-sdk"
+keywords = ["weather", "forecast", "asyncio", "python3"]
+classifiers = [
+    "Development Status :: 1 - Planning",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+aiohttp = {extras = ["speedups"], version = "^3.6.2"}
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.4.2"
+pytest-asyncio = "^0.12.0"
+pytest-cov = "^2.9.0"
+pytest-mock = "^3.1.0"
+black = "^19.10b0"
+aresponses = "^2.0.0"
+
+[tool.black]
+line-length = 79
+
+[build-system]
+requires = ["poetry>=1.0"]
+build-backend = "poetry.masonry.api"
