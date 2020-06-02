@@ -1,6 +1,7 @@
 # Async Weather SDK
 
 [![PyPI version](https://img.shields.io/pypi/v/async-weather-sdk?logo=python&logoColor=white)](https://badge.fury.io/py/async-weather-sdk)
+[![GitHub Workflow Status for tests](https://img.shields.io/github/workflow/status/decentfox/async-weather-sdk/test?logo=github&logoColor=white)](https://github.com/decentfox/async-weather-sdk/actions?query=workflow%3Atest)
 [![Codacy Badge](https://img.shields.io/codacy/coverage/f548667427c24fc394204b440166c26d?logo=Codacy)](https://www.codacy.com/gh/decentfox/async-weather-sdk?utm_source=github.com&utm_medium=referral&utm_content=decentfox/async-weather-sdk&utm_campaign=Badge_Coverage)
 
 Async weather API wrapper for fetching weather and forecast data
