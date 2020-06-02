@@ -1,5 +1,9 @@
+import sys
+
+import asyncio
 import aiohttp
 import pytest
+
 from async_weather_sdk.qq import query_current_weather, query_weather_forecast
 from async_weather_sdk.qq import QQMap, QQWeather
 
@@ -461,7 +465,61 @@ async def test_qq_map_location_lookup_by_keyword(aresponses):
         assert res == {}
 
 
-async def test_qq_map_location_lookup(mocker):
+@pytest.fixture()
+def mock_location_lookup_by_ip(mocker):
+    future = asyncio.Future()
+    mocker.patch(
+        "async_weather_sdk.qq.QQMap.location_lookup_by_ip", return_value=future
+    )
+    future.set_result("mock_location_lookup_by_ip")
+    return future
+
+
+@pytest.fixture()
+def mock_location_lookup_by_coordinates(mocker):
+    future = asyncio.Future()
+    mocker.patch(
+        "async_weather_sdk.qq.QQMap.location_lookup_by_coordinates",
+        return_value=future,
+    )
+    future.set_result("location_lookup_by_coordinates")
+    return future
+
+
+@pytest.fixture()
+def mock_location_lookup_by_keyword(mocker):
+    future = asyncio.Future()
+    mocker.patch(
+        "async_weather_sdk.qq.QQMap.location_lookup_by_keyword",
+        return_value=future,
+    )
+    future.set_result("location_lookup_by_keyword")
+    return future
+
+
+async def test_qq_map_location_lookup(
+    mock_location_lookup_by_ip,
+    mock_location_lookup_by_coordinates,
+    mock_location_lookup_by_keyword,
+):
+    if sys.version_info >= (3, 8):
+        return
+
+    qq_map = QQMap("API_KEY")
+    res = await qq_map.location_lookup("61.135.17.68")
+    assert res == "mock_location_lookup_by_ip"
+
+    res = await qq_map.location_lookup("39.90469,116.40717")
+    assert res == "location_lookup_by_coordinates"
+
+    res = await qq_map.location_lookup("北京市")
+    assert res == "location_lookup_by_keyword"
+
+
+async def test_qq_map_location_lookup_p38(mocker):
+    if sys.version_info < (3, 8):
+        return
+
     mocker.patch("async_weather_sdk.qq.QQMap.location_lookup_by_ip")
     mocker.patch("async_weather_sdk.qq.QQMap.location_lookup_by_coordinates")
     mocker.patch("async_weather_sdk.qq.QQMap.location_lookup_by_keyword")
