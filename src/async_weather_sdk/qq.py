@@ -22,9 +22,7 @@ class QQWeather(BaseClient):
             endpoint=WEATHER_ENDPOINT, session=session, logger=logger
         )
 
-    async def fetch_weather(
-        self, province: str, city: str, weather_type: str
-    ) -> dict:
+    async def fetch_weather(self, province: str, city: str, weather_type: str):
         """
         Fetch weather data from Tencent (QQ) Weather API.
 
