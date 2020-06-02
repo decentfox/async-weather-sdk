@@ -51,7 +51,7 @@ lint: ## check style with black
 	black --check src
 
 test: lint ## run tests quickly with the default Python
-	pytest --cov --cov-fail-under=90 --no-cov-on-fail
+	pytest --cov --cov-fail-under=95 --no-cov-on-fail
 
 coverage: ## check code coverage quickly with the default Python
 	pytest --cov --cov-report html

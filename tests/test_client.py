@@ -83,8 +83,7 @@ async def test_request_with_timeout(aresponses):
             await client.request("/v1", timeout=0.05)
 
 
-async def test_session_closed_after_request(aresponses, mocker):
-    mocker.patch("aiohttp.ClientSession.close")
+async def test_session_closed_after_request(aresponses):
     aresponses.add(
         "BASE_ENDPOINT",
         "/v1",
@@ -99,4 +98,3 @@ async def test_session_closed_after_request(aresponses, mocker):
     client = BaseClient("https://BASE_ENDPOINT/")
     assert client.session is None
     await client.request("/v1")
-    aiohttp.ClientSession.close.assert_called_once()
