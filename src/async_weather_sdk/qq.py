@@ -18,7 +18,8 @@ class QQWeather(BaseClient):
         session: Optional[aiohttp.ClientSession] = None,
         logger: Optional[logging.Logger] = None,
     ):
-        """Implement QQ Weather client that performs QQ weather API requests.
+        """
+        Implement QQ Weather client that performs QQ weather API requests.
 
         :param session: Optionally specify the aiohttp session
         :param logger: An optional logger
@@ -28,7 +29,8 @@ class QQWeather(BaseClient):
         )
 
     async def fetch_weather(self, province: str, city: str, weather_type: str):
-        """Fetch weather data from Tencent (QQ) Weather API.
+        """
+        Fetch weather data from Tencent (QQ) Weather API.
 
         :param province: Province Name in Chinese, for example: 北京市
         :param city: City Name in Chinese, for example: 北京市
@@ -122,7 +124,8 @@ class QQMap(BaseClient):
         session: Optional[aiohttp.ClientSession] = None,
         logger: Optional[logging.Logger] = None,
     ):
-        """Implement QQ Map client that performs QQ Map API requests.
+        """
+        Implement QQ Map client that performs QQ Map API requests.
 
         :param api_key: QQ Map WebService API key
         :param session: Optionally specify the aiohttp session

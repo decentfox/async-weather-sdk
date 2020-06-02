@@ -16,7 +16,8 @@ class BaseClient(object):
         session: Optional[aiohttp.ClientSession] = None,
         logger: Optional[logging.Logger] = None,
     ):
-        """Implement client that performs weather API requests.
+        """
+        Implement client that performs weather API requests.
 
         :param endpoint: The base endpoint URL
         :param session: Optionally specify the aiohttp session
