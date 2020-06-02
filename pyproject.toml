@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "async-weather-sdk"
-version = "0.1.0"
+version = "0.1.1"
 description = "Async weather API wrapper for fetching weather and forecast data"
 authors = ["DecentFoX <service@decentfox.com>"]
 readme = "README.md"
