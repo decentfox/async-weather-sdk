@@ -7,8 +7,19 @@ Async weather API wrapper for fetching weather and forecast data
 
 ## Core Dependencies
 
-  - **Asyncio:** a library to write concurrent code using the async/await syntax.
-  - **Aiohttp:** an asynchronous HTTP Client/Server for asyncio and Python.
+**Asyncio:** a library to write concurrent code using the async/await syntax.
+
+**Aiohttp:** an asynchronous HTTP Client/Server for asyncio and Python.
+
+## Install
+
+```bash
+pip install async-weather-sdk
+
+OR
+
+poetry add async-weather-sdk
+```
 
 ## Usage
 
